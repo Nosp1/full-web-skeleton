@@ -10,7 +10,7 @@ Se i `config.properties` og endre variablene til ditt database-brukernavn og pas
 
 Eksempel:
 ```
-username=trym
+username=root (eller en user dere lager og gir rettigheter til)
 password=12345
 URL=jdbc:mariadb://172.19.160.1:3308
 ```
