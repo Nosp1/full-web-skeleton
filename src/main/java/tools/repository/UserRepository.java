@@ -21,24 +21,31 @@ public class UserRepository {
 
     public static void addUser(UserModel user, PrintWriter p) {
         Connection db = null;
-        PreparedStatement insertNewUser = null;
+        PreparedStatement insertNewUser;
+        String idToReturn = null;
+        ResultSet rs = null;
         try {
             db = DbTool.getINSTANCE().dbLoggIn(p);
+            db.setCatalog("otra");
             String query =
-                "INSERT INTO `user` (User_firstName, User_lastName,User_Email, User_password ) values (?,?,?,?)";
+                "INSERT INTO user (User_firstName, User_lastName,User_Email, User_password, User_dob ) values (?,?,?,?,?)";
 
             insertNewUser = db.prepareStatement(query);
             insertNewUser.setString(1, user.getFirstName());
             insertNewUser.setString(2, user.getLastName());
             insertNewUser.setString(3, user.getUserName());
             insertNewUser.setString(4, user.getPassword());
-            insertNewUser.execute();
+            insertNewUser.setString(5, user.getDob());
+           rs = insertNewUser.executeQuery();
+
+
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
             try {
                 db.close();
+                rs.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

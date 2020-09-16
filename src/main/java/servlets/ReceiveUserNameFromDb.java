@@ -35,7 +35,7 @@ public class ReceiveUserNameFromDb extends AbstractAppServlet {
     protected void writeBody(HttpServletRequest req, PrintWriter out) {
         String username = req.getParameter("uname");
         String nameFromDb = UserRepository.getUserName(username,out);
-        out.format("<h1> Here is your request: %s</h1", nameFromDb);
+        out.format("<h1> Here is your request: %s</h1>", nameFromDb);
 
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

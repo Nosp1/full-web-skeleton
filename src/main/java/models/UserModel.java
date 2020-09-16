@@ -5,6 +5,7 @@ public class UserModel {
     private String lastName;
     private String userName;
     private String password;
+    private String dob;
 
     /**
      *
@@ -13,18 +14,28 @@ public class UserModel {
      * @param userName the users email .e.g., example@example.com
      * @param password the users password: we usually encrypt it in the database but thats for you to figure out :)
      */
-    public UserModel(String firstName, String lastName, String userName, String password) {
+    public UserModel(String firstName, String lastName, String userName, String password, String dob) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
+        this.dob = dob;
     }
+
+
 
     /**
      *
      * GETTERS AND SETTERS!
      */
 
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
     public String getFirstName() {
         return firstName;
     }

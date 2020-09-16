@@ -20,6 +20,7 @@ create table if not EXISTS otra.user
     User_lastName  varchar(255),
     User_Email     varchar(255),
     User_password  varchar(255),
+    User_dob varchar(255),
     CONSTRAINT U_User_ID_PK PRIMARY KEY (User_id)
 );
 
@@ -28,9 +29,11 @@ create table if not EXISTS otra.user
 insert into otra.user (User_firstName,
                        User_lastName,
                        User_Email,
-                       User_password)
+                       User_password,
+                       User_dob)
 values (
         'trym',
         'Staurheim',
         'trym@example.com',
-        '12345');
+        '12345',
+        '1993-25-09');
