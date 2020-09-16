@@ -1,18 +1,18 @@
-#Dette skriptet kan  kan dere kjøre om dere ikke har en bruker til å logge inn i databasen
-#--> kan være greit å endre trym til sitt navn og et eget passord.
-CREATE USER 'trym'@'%' IDENTIFIED BY '12345';
 
-#--> dette trenger kun å kjøre om dere ikke har en schema (en database partisjon.)
+
+# Dette trenger kun å kjøre om dere ikke har en schema (en database partisjon.)
+#lager databasen om den ikke finnes. navnet er bare tilfeldig.
 CREATE DATABASE if not EXISTS otra;
-#--> dette må dere kjøre for å gi tilgang til brukeren dere har lagd.
-# husk å endre navnet om dere vil ha deres egen.
-GRANT ALL PRIVILEGES ON otra.* TO 'trym'@'%';
+
+
 #denne må dere kjøre for at skript filen skal skjønne at
 # <otra> er databasen dere vil lage tables og inserte data i.
 USE otra;
 
 
 #alt under her må kjøres for at eksemplet jeg har lagd skal kunne kjøre.
+
+#lager table Users i databasen otra
 create table if not EXISTS otra.user
 (
     User_id        integer UNIQUE auto_increment,
@@ -23,6 +23,8 @@ create table if not EXISTS otra.user
     CONSTRAINT U_User_ID_PK PRIMARY KEY (User_id)
 );
 
+
+#inserter en record av en bruker inn i databasen otra.
 insert into otra.user (User_firstName,
                        User_lastName,
                        User_Email,

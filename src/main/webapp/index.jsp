@@ -8,7 +8,7 @@
 <h1>Welcome to your skeleton ;.)</h1>
 <p>Herein you will have an example of a servlet handling a query to your mariaDb and display the results in your web browser
     using payara.
-    This is pretty difficult right?
+
 </p>
 <p>Click here to send a request for a user.
     <a href="RequestUserNameFromDb">get user</a></p>
