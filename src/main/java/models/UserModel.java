@@ -1,31 +1,41 @@
 package models;
 
+import javax.enterprise.inject.Default;
+
 public class UserModel {
     private String firstName;
     private String lastName;
     private String userName;
     private String password;
     private String dob;
+    private Gender gender;
 
     /**
-     *
      * @param firstName the users firstname
-     * @param lastName the users lastname
-     * @param userName the users email .e.g., example@example.com
-     * @param password the users password: we usually encrypt it in the database but thats for you to figure out :)
+     * @param lastName  the users lastname
+     * @param userName  the users email .e.g., example@example.com
+     * @param password  the users password: we usually encrypt it in the database but thats for you to figure out :)
      */
-    public UserModel(String firstName, String lastName, String userName, String password, String dob) {
+    public UserModel(String firstName, String lastName, String userName, String password, String dob, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.dob = dob;
+        this.gender = gender;
     }
 
+    public UserModel() {}
 
+    public UserModel(String firstName, String lastName, String userName, String dob, Gender gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.dob = dob;
+        this.gender = gender;
+    }
 
     /**
-     *
      * GETTERS AND SETTERS!
      */
 
@@ -36,6 +46,7 @@ public class UserModel {
     public void setDob(String dob) {
         this.dob = dob;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -60,8 +71,6 @@ public class UserModel {
         this.userName = userName;
     }
 
-
-
     public String getPassword() {
         return password;
     }
@@ -69,4 +78,13 @@ public class UserModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
 }

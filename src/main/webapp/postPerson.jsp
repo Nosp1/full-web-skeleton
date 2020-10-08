@@ -12,6 +12,7 @@
 </head>
 <body>
 <form action="ValidatePost" method="post">
+    <h1>ER dere trøtte</h1>
     <h1>Register</h1>
     <div>
         <label for="firstName">First name</label>
@@ -19,6 +20,8 @@
     </div>
 
     <div>
+
+
         <label for="lastName">Last name</label>
         <input id="lastName" type="text" name="lastName" placeholder="Smith" required>
     </div>
@@ -39,6 +42,14 @@
         <label for="dob">Date Of birth</label>
         <input id="dob" type="date" name="dob" required>
     </div>
+
+    <div>
+        <input type="radio" id="male" name="gender" value="MALE">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="FEMALE">
+        <label for="female">Female</label>
+    </div>
+
 
     <div>
         <label for="terms">I agree the Terms of Use

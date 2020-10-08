@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 public final class DbTool {
     private static final tools.DbTool INSTANCE = new tools.DbTool();
     static Connection connection;
@@ -80,7 +82,6 @@ public final class DbTool {
         Connection toReturn = null;
         Map<String, String> result = getProperties();
 
-
         try {
             toReturn = (connection != null)
                 ? connection
@@ -95,5 +96,18 @@ public final class DbTool {
         }
         return toReturn;
     }
+
+    public static DriverManagerDataSource getDataSource() {
+        Map<String, String> result = getProperties();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+        dataSource.setUrl(result.get("URL"));
+        dataSource.setUsername(result.get("username"));
+        dataSource.setPassword(result.get("password"));
+        return dataSource;
+    }
+
+
+
 }
 
